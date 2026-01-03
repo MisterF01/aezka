@@ -79,36 +79,58 @@ rustup target add x86_64-unknown-redox
 
 ## 🚀 Compilación
 
-### 1. Configuración Inicial (Podman)
+### Quick Start (Opción Automática)
 
 ```bash
+# 1. Clonar Aezka
+git clone https://github.com/MisterF01/Aezka.git
+cd Aezka
+
+# 2. Setup automático (descarga Redox OS y configura todo)
+./setup-aezka.sh
+
+# 3. Compilar y ejecutar
+./scripts/aezka.sh build
+./scripts/aezka.sh run
+```
+
+### Opción Manual
+
+**Importante**: Este repositorio contiene solo los componentes personalizados de Aezka.
+Para compilar, primero necesitas el código base de Redox OS:
+
+```bash
+# 1. Clonar Aezka
+git clone https://github.com/MisterF01/Aezka.git
+cd Aezka
+
+# 2. Obtener código base de Redox OS
+git clone --depth=1 https://gitlab.redox-os.org/redox-os/redox.git redox-temp
+cp -r redox-temp/* .
+rm -rf redox-temp
+
+# 3. Bootstrap (solo primera vez)
 ./podman_bootstrap.sh
-```
 
-### 2. Compilar Aezka
-
-```bash
-make all
-```
-
-### 3. Ejecutar en QEMU
-
-```bash
-make qemu
-```
-
-### Usando el Script Personalizado
-
-```bash
-# Compilar
+# 4. Compilar Aezka
 ./scripts/aezka.sh build
 
-# Ejecutar
+# 5. Ejecutar en QEMU
 ./scripts/aezka.sh run
-
-# Limpiar
-./scripts/aezka.sh clean
 ```
+
+### Comandos del Script Aezka
+
+```bash
+./scripts/aezka.sh build      # Compilar
+./scripts/aezka.sh run        # Ejecutar en QEMU
+./scripts/aezka.sh clean      # Limpiar archivos de build
+./scripts/aezka.sh rebuild    # Limpiar y recompilar
+./scripts/aezka.sh version    # Ver información de versión
+./scripts/aezka.sh help       # Mostrar ayuda
+```
+
+📖 **Instrucciones detalladas**: Ver [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)
 
 ## 🎨 Información de Versión
 
