@@ -1,0 +1,84 @@
+# Aezka OS - Build System Configuration
+# Sistema Operativo Modular | Seguro | Accesible
+#
+# Configuración personalizada para Aezka OS v0.1.0 "Taquion"
+# Basado en Redox OS desktop configuration
+#
+# Copyright (c) 2025 Aezka & Mister_F
+# Basado en Redox OS - Copyright (c) 2016 Redox OS Developers
+
+# Incluir configuración base de desktop de Redox
+include = ["../desktop.toml"]
+
+# ============================================================================
+# CONFIGURACIÓN GENERAL DE AEZKA
+# ============================================================================
+
+[general]
+# Tamaño del sistema de archivos en MiB
+# Aezka usa un tamaño mayor para acomodar componentes adicionales
+filesystem_size = 1024
+
+# Nombre del sistema
+# name = "Aezka"
+
+# ============================================================================
+# PAQUETES DE AEZKA
+# ============================================================================
+# Esta sección incluye los paquetes que forman parte de Aezka
+# Los paquetes heredados de desktop.toml están incluidos automáticamente
+
+[packages]
+# Paquetes base ya incluidos desde desktop.toml:
+# - cosmic-edit, cosmic-files, cosmic-term (COSMIC desktop apps)
+# - orbital (display server)
+# - netsurf (navegador)
+
+# ============================================================================
+# PAQUETES ADICIONALES PLANEADOS PARA AEZKA
+# ============================================================================
+# Cuando se desarrollen componentes propios de Aezka, se agregarán aquí:
+#
+# [packages]
+# aezka-escritorio = {}    # Entorno de escritorio Aezka
+# aezka-scheduler = {}     # Scheduler de tiempo real
+# aezka-herramientas = {}  # Utilidades en español
+# aezka-temas = {}         # Temas visuales de Aezka
+
+# ============================================================================
+# CONFIGURACIÓN DE ARCHIVOS DE INICIO
+# ============================================================================
+# Scripts de inicialización personalizados para Aezka
+
+# Nota: Por ahora usamos la configuración heredada de desktop.toml
+# En versiones futuras se personalizará el inicio para mostrar:
+# - Logo de Aezka
+# - Información de versión (Codename | Version | Fecha)
+# - Mensajes en español
+
+# ============================================================================
+# CONFIGURACIÓN DE DESARROLLO
+# ============================================================================
+# Herramientas adicionales útiles para desarrollo de Aezka
+
+# Descomentar para incluir herramientas de desarrollo:
+# [packages]
+# rust = {}
+# cargo = {}
+# git = {}
+
+# ============================================================================
+# NOTAS
+# ============================================================================
+# 1. Esta configuración está en desarrollo activo
+# 2. Se añadirán más paquetes a medida que se desarrollen componentes de Aezka
+# 3. La configuración base de Redox se mantiene para garantizar funcionalidad
+# 4. Solo se compila esta configuración (no minimal, server, etc.)
+#
+# Para compilar Aezka con esta configuración:
+#   make all CONFIG_NAME=aezka
+#   make qemu CONFIG_NAME=aezka
+#
+# O usando el script personalizado:
+#   ./scripts/aezka.sh build
+#   ./scripts/aezka.sh run

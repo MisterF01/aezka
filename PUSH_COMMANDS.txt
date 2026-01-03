@@ -1,0 +1,107 @@
+════════════════════════════════════════════════════════════════════════════════
+  AEZKA OS - COMANDOS PARA HACER PUSH AL REPOSITORIO REMOTO
+════════════════════════════════════════════════════════════════════════════════
+
+IMPORTANTE: Estos comandos deben ejecutarse desde tu sistema Fedora local con
+credenciales de GitHub configuradas.
+
+════════════════════════════════════════════════════════════════════════════════
+  COMMITS PENDIENTES DE PUSH (4 commits)
+════════════════════════════════════════════════════════════════════════════════
+
+1. 8cfb97f - docs: Agregar guía de instalación completa
+2. 5bc64a4 - Merge: Integrar Aezka OS a rama de desarrollo
+3. f828bfd - feat: Inicializar Aezka OS v0.1.0 "Taquion" basado en Redox OS
+4. a95305c - Merge branch 'dynamic-init-other-os' into 'master'
+
+════════════════════════════════════════════════════════════════════════════════
+  COMANDOS A EJECUTAR
+════════════════════════════════════════════════════════════════════════════════
+
+# 1. Verificar que estás en la rama correcta
+git branch
+# Deberías ver: * claude/create-aezka-os-vlUXd
+
+# 2. Hacer push de la rama de desarrollo (PRINCIPAL)
+git push -u origin claude/create-aezka-os-vlUXd
+
+# 3. Hacer push del tag de versión v0.1.0
+git push origin v0.1.0
+
+# 4. (OPCIONAL) Si quieres también subir master
+git checkout master
+git push origin master
+git checkout claude/create-aezka-os-vlUXd
+
+════════════════════════════════════════════════════════════════════════════════
+  VERIFICACIÓN POST-PUSH
+════════════════════════════════════════════════════════════════════════════════
+
+# Verificar que todo se subió correctamente
+git status
+# Debería decir: "Your branch is up to date with 'origin/claude/create-aezka-os-vlUXd'"
+
+# Ver todos los tags
+git tag
+# Debería mostrar: v0.1.0
+
+# Ver remotes configurados
+git remote -v
+# Debería mostrar:
+#   origin          https://github.com/MisterF01/Aezka.git (fetch)
+#   origin          https://github.com/MisterF01/Aezka.git (push)
+#   redox-upstream  https://gitlab.redox-os.org/redox-os/redox.git (fetch)
+#   redox-upstream  https://gitlab.redox-os.org/redox-os/redox.git (push)
+
+════════════════════════════════════════════════════════════════════════════════
+  ALTERNATIVA: USAR EL SCRIPT AUTOMÁTICO
+════════════════════════════════════════════════════════════════════════════════
+
+Si prefieres, puedes usar el script interactivo:
+
+./PUSH_INSTRUCTIONS.sh
+
+Este script te guiará paso a paso y hará el push por ti.
+
+════════════════════════════════════════════════════════════════════════════════
+  SOLUCIÓN DE PROBLEMAS
+════════════════════════════════════════════════════════════════════════════════
+
+Error: "could not read Username"
+Solución: Configura tus credenciales de GitHub:
+  git config --global user.name "Tu Nombre"
+  git config --global user.email "tu@email.com"
+
+Error: "Authentication failed"
+Solución: Usa un Personal Access Token en lugar de contraseña:
+  1. Ve a GitHub Settings > Developer settings > Personal access tokens
+  2. Genera un nuevo token con permisos de "repo"
+  3. Usa el token como contraseña al hacer push
+
+Error: "permission denied"
+Solución: Verifica que tienes permisos de escritura en el repositorio
+
+Error: "Updates were rejected"
+Solución: Alguien más hizo cambios. Primero haz pull:
+  git pull origin claude/create-aezka-os-vlUXd
+  # Resuelve conflictos si los hay
+  git push -u origin claude/create-aezka-os-vlUXd
+
+════════════════════════════════════════════════════════════════════════════════
+  DESPUÉS DEL PUSH
+════════════════════════════════════════════════════════════════════════════════
+
+Una vez completado el push, puedes:
+
+1. Ver tu repositorio en: https://github.com/MisterF01/Aezka
+2. Crear un Pull Request si es necesario
+3. Comenzar a desarrollar componentes de Aezka
+4. Compilar el proyecto: ./scripts/aezka.sh build
+
+════════════════════════════════════════════════════════════════════════════════
+
+Versión: Aezka (Taquion | 0.1.0 | 20250103)
+Implementador: Mister_F
+Basado en: Redox OS
+
+════════════════════════════════════════════════════════════════════════════════

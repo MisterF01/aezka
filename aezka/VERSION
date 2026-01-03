@@ -1,0 +1,30 @@
+# Aezka OS - Version Information
+# Este archivo define la versión de Aezka OS
+# La fecha de compilación se genera automáticamente
+#
+# Formato de versión:
+#   Largo: Aezka (Codename | Mayor.Menor.Patch | FechaCompilación)
+#   Corto: Aezka (Codename)
+#
+# Implementador: Mister_F - 2025
+# Copyright (c) 2025 Aezka & Mister_F
+
+# Versión del Sistema Aezka
+AEZKA_VERSION_MAJOR=0
+AEZKA_VERSION_MINOR=1
+AEZKA_VERSION_PATCH=0
+AEZKA_CODENAME="Taquion"
+
+# Información del Kernel
+# Basado en Redox OS
+KERNEL_BASE="Redox OS"
+KERNEL_VERSION="Latest from GitLab"
+
+# Build Information (se genera automáticamente en tiempo de compilación)
+# BUILD_DATE se calcula como: $(date +%Y%m%d)
+# Ejemplo: 20250103
+
+# Ejemplos de versión completa:
+# - Largo: Aezka (Taquion | 0.1.0 | 20250103)
+# - Corto: Aezka (Taquion)
+# - Kernel: Aezka Kernel (Redox OS | Latest)
