@@ -1,0 +1,102 @@
+# ============================================================================
+# Aezka OS - Gitignore
+# ============================================================================
+# Este archivo ignora los componentes base de Redox OS, manteniendo solo
+# los archivos específicos de Aezka en el repositorio.
+#
+# Implementador: Mister_F - 2025
+# ============================================================================
+
+# ============================================================================
+# ARCHIVOS BASE DE REDOX OS (Ignorados)
+# ============================================================================
+# No incluimos el código fuente completo de Redox OS en nuestro repo
+
+/.cargo/
+/.gitlab/
+/.gitlab-ci.yml
+/.gitmodules
+/Cargo.lock
+/Cargo.toml
+/HARDWARE.md
+/TRADEMARK.md
+/Makefile
+/bin/
+/build.sh
+/flake.lock
+/flake.nix
+/mk/
+/native_bootstrap.sh
+/podman/
+/podman_bootstrap.sh
+/recipes/
+/redox.ipxe
+/rust/
+/rust-toolchain.toml
+/src/
+
+# CONTRIBUTING.md de Redox (tenemos CONTRIBUTING_AEZKA.md)
+/CONTRIBUTING.md
+
+# ============================================================================
+# CONFIGURACIONES (Ignorar excepto aezka.toml)
+# ============================================================================
+/config/*
+!/config/x86_64/
+/config/x86_64/*
+!/config/x86_64/aezka.toml
+
+# ============================================================================
+# SCRIPTS (Ignorar excepto aezka.sh)
+# ============================================================================
+/scripts/*
+!/scripts/aezka.sh
+
+# ============================================================================
+# BUILD ARTIFACTS
+# ============================================================================
+/build/
+/prefix/
+/target/
+*.iso
+*.img
+*.bin
+
+# ============================================================================
+# IDE Y EDITORES
+# ============================================================================
+.idea/
+.vs/
+.vscode/
+.devcontainer/
+*.swp
+*.swo
+*~
+
+# ============================================================================
+# REDOX COOKBOOK
+# ============================================================================
+/repo
+/cookbook.toml
+source
+source.tmp
+source-new
+source-old
+source.tar
+source.tar.tmp
+
+# ============================================================================
+# TEMPORALES Y LOGS
+# ============================================================================
+.config
+**/my_*
+wget-log
+*.log
+*.tmp
+/tmp/
+
+# ============================================================================
+# OS ESPECÍFICOS
+# ============================================================================
+.DS_Store
+Thumbs.db
